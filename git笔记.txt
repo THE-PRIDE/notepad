@@ -11,8 +11,12 @@ git init
 git clone <仓库地址>(克隆)
 git remote add origin  <远程仓库地址>（关联远程）
 git add reademe.txt  (git add .)  将文件添加到仓库    （添加所有文件）
-
 git commit -m "注释"    (git commit) 提交
+
+git push (推送到远程)
+git push -u origin master (第一次推送master分支，加上 -u,这样会将远程与本地master关联，以后可简化命令)
+git push origin master
+git push --set-upstream origin master（第一次推送需关联）
 
 git log (查看提交日志，获取版本号)
 git reset --hard commit_id     (回退版本  commit_id是通过log查到的版本号，可以不输入完整)
@@ -23,11 +27,6 @@ git reset HEAD <file>（从暂存区放弃修改）
 
 命令git rm用于删除一个文件。（需要commit）
 git checkout -- test.txt把误删的文件恢复到最新版本
-
-git push (推送到远程)
-git push -u origin master (第一次推送master分支，加上 -u,这样会将远程与本地master关联，以后可简化命令)
-git push origin master
-
 
 git checkout -b dev
 （表示创建并切换  == git branch dev     git checkout dev）
