@@ -1,0 +1,41 @@
+隐式启动activity：
+
+1.action的匹配规则：（匹配上一个action即可）
+
+action在Intent-filter可以设置多条
+intent中action最多只有一条
+intent中必须指定action，否则匹配失败；
+intent中的action和intent-filter中的action必须完全一样(包括大小写)
+intent中的action只需要与intent-filter其中的一条匹配成功即可
+
+
+2.category的匹配规则：（所有的category都要匹配上）
+
+category在intent-filter中可以设置多条
+category在intent中也可以设置多条
+intent中所有的category都可以在intent-filter中找到(包括大小写)
+通过intent启动activity的时候，如果没添加category会自动添加DEFAULT
+如果intent-filter中没添加DEFAULT，会匹配失败
+
+3.data的匹配规则：
+
+intent-filter中可以设置多个data
+intent中只能设置一个data
+intent-filter中指定了data，intent中就要指定其中一个data
+setType会覆盖setData,setData会覆盖setType,因此需要使用setDataAndType方法设置data和mimeType;
+
+
+
+data语法
+scheme：主机的协议部分（对应http）
+host：主机部分 （对应www.baidu.com）
+port: 端口号  （对应8080）
+path:路径 （对应index）
+
+pathPrefix:指定了部分路径，他会跟intent对象中的路径初始部分匹配
+pathPattern：指定的另可以进行正则匹配
+mimeType: 处理的数据类型，如image/*
+
+scheme://host:port/path|pathPrefix|pathPattern
+
+

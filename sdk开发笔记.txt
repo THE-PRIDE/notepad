@@ -1,0 +1,33 @@
+
+
+
+repositories{
+flatDir{
+	dirs 'libs'
+}
+}Add library 'Gradle: com.google.code.gson:gson:2.8.5@jar' to classpath
+
+
+不需要activity或者fragment作为载体，不需要重写onPermissionResult；
+去除版本判断，只需要在一个工具类中把某个方法适配，然后调用；
+一行代码完成权限检查、请求、处理结果
+
+
+
+解耦Activity和fragment，不再需要Context，不需要onPermissionResult
+
+aar冲突，查找冲突类所在的jar,ctrl+N,确定冲突类所在的jar
+引用aar不刷新，在宿主工程中，取消引用，再重新引用，刷新gradle文件即可
+
+implementation：只在内部使用，在library中引用gson库，主工程引用library，则主工程不能使用gson。
+	编译速度更快
+
+implementation：依赖的库不会传递，只在当前module生效
+api:依赖方式会传递依赖的库，当其他module依赖该module，可使用该module依赖的库
+compileOnly：只在编译有效，不参与打包
+apk：只在生成apk时参与打包，编译时不参与，很少用
+
+
+testImplementation：只在单元测试代码的编译以及最终打包测试apk时有效
+debugImplementation:只在debug模式的编译和最终debug apk打包时有效
+releaseImplementation: 只在release模式下的编译和最终的release apk打包有效

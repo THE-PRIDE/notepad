@@ -1,0 +1,12 @@
+关于3Des加密的那些坑：
+
+获取秘钥：
+	java平台跟android平台，获取秘钥有点区别，KeyGenerator类、SecureRandom类，生成这个两个类所依赖的
+Provider，在java跟android中是不一样的，所以，为客户端跟服务端保持秘钥一直，需要直接使用new SecretKeySpec(secretKey.getEncoded(), "DESede");生成秘钥：
+
+	java中秘钥的长度为24，android长度必须为16或24，故秘钥应取24位；
+
+解析问题：
+	在android平台btye[]转字符串时，直接使用new String(btye[])，可能会导致乱码问题，此时应使用Base64对byte加解密，然后再传递，即可解决乱码，
+	应注意，android平台跟java平台Base64工具不一样，android在转换后，可能在字符串最后自动加上"\n"，此时应调用replace("\n"，“”),将换行符去掉；
+

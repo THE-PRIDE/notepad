@@ -1,0 +1,18 @@
+Android与JS通过webview互相调用；
+
+二者交互的媒介是webview
+
+Android调用JS代码有两种：
+1.通过webview的loadurl()
+2.通过webview的evaluateJavascript();
+
+JS代码调用一定要在 onPageFinished（） 回调之后才能调用，否则不会调用。
+
+
+JS调用Android代码有三种
+1.通过webview的addJavascriptImterface()进行对象映射
+（此方式有漏洞）
+2.通过webviewClient的shouldOverrideUrlLoading()方法回调拦截url
+(此方式，H5获取返回值较麻烦)
+3.通过webChromeClient的onJsAlert()/onJsConfirm()/onJsPrompt()方法回调拦截JS对话框alert()/confirm()/prompt()消息
+

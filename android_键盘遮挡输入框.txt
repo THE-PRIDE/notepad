@@ -1,0 +1,56 @@
+android_键盘遮挡输入框：
+
+在AndroidManifest.xml对应的Activity里添加 
+android:windowSoftInputMode=”adjustPan”或是android:windowSoftInputMode=”adjustResize”属性 
+
+1.非透明状态栏下使用 adjustResize 和 adjustPan 
+
+adjustResize:需要界面本身可调整尺寸，如布局添加了Scrollview，或者输入控件属于ListView某一项；
+	优点：不会把标题栏顶出当前布局
+		有多个输入项，可滑动
+	缺点：需要界面本身可调整尺寸
+		全屏时失效
+失效情况：
+1.Activity主窗口尺寸无法调整；
+2.Activity全屏
+3.android5.0以上通过style设置沉浸式状态栏模式而不设置fitSystemWindow为true
+
+
+adjustPan:页面不会重新布局，直接将当前输入框以上界面向上平移，标题栏会被顶上去；
+	优点：使用简单，不需要界面可调整尺寸，不会失效
+	缺点：会将标题栏顶出当前布局，当输入框下有其他输入框，需收起键盘；
+失效情况：无
+
+
+2.透明状态栏下使用fitsSystemWindows = true属性；
+
+fitsSystemWindows:=“true”
+
+
+详细
+https://blog.csdn.net/smileiam/article/details/69055963
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

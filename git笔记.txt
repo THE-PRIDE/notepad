@@ -1,0 +1,53 @@
+按下字母键 c（此时进入编辑状态），修改注释（i也可以）
+修改好后
+按下Esc (退出编辑状态)； 
+接着连按两次大写字母Z  保存退出！
+（window与mac有区别）
+
+
+git 版本号是SHA1计算出来的一个非常大的数字，用十六进制表示
+
+git init
+git clone <仓库地址>(克隆)
+git remote add origin  <远程仓库地址>（关联远程）
+git add reademe.txt  (git add .)  将文件添加到仓库    （添加所有文件）
+
+git commit -m "注释"    (git commit) 提交
+
+git log (查看提交日志，获取版本号)
+git reset --hard commit_id     (回退版本  commit_id是通过log查到的版本号，可以不输入完整)
+git reflog  (查看看命令历史，确定退回到  未来的哪个版本)
+
+丢弃工作区的修改时，用命令git checkout -- file
+git reset HEAD <file>（从暂存区放弃修改）
+
+命令git rm用于删除一个文件。（需要commit）
+git checkout -- test.txt把误删的文件恢复到最新版本
+
+git push (推送到远程)
+git push -u origin master (第一次推送master分支，加上 -u,这样会将远程与本地master关联，以后可简化命令)
+git push origin master
+
+
+git checkout -b dev
+（表示创建并切换  == git branch dev     git checkout dev）
+git branch (查看当前分支)
+git merge dev (合并指定分支到当前分支)
+git branch -d dev (删除分支)
+git merge --no-ff -m "merge with no-ff" dev
+（此模式合并，表示禁用Fast forward，合并后可以看出来曾经做过合并）
+
+git cherry-pick <指定的某个提交的版本号>
+
+git stash 保存工作现场
+git stash pop 回到工作现场
+
+git branch -D <分支名称>  强行删除分支
+
+git pull 提示本地分支和远程分支的链接关系没有创建，用命令
+git branch --set-upstream-to <branch-name> origin/<branch-name>
+创建分支的远程链接
+
+git rebase 可以把本地未push的分叉提交历史整理成直线
+rebase的 目的是使我们查看历史提交的变化时更容易，因为分叉的提交需要三方对比
+

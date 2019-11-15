@@ -1,0 +1,11 @@
+app:transformDexArchiveWithExternalLibsDexMergerForDebug
+
+找gradle 的依赖树，依赖库重复
+
+
+
+
+
+
+gradlew assemble
+gradlew compileDebugJavaWithJavac

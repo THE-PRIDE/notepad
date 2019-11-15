@@ -1,0 +1,57 @@
+关于sdk开发遇到的一些坑：
+
+
+清单配置文件冲突：
+使用tools.replace/remove，替换冲突的字段名（name）.替换多个时，用逗号隔开
+
+检测清单配置文件冲突命令
+gradlew processDebugManifest --stacktrace
+
+配置provider时，metadata找不到：
+检查manifest文件，路径应该用resource，不能用value；
+
+
+found an invalid color：
+这是部分.9图片有问题（可能是有边的黑线没画）
+
+
+received-close-notify-during-handshake
+gradle配置中，有引用包下载失败
+
+找不到constraintLayout包
+gradle版本低可能引用不到constraintLayout
+
+网路请求：
+RSA+AES加密，保存cookie,保存token(单点登录)
+
+Keytool是一个Java数据证书的管理工具 ,Keytool将密钥（key）和证书（certificates）存在一个称为keystore的文件中。
+ 
+在keystore里，包含两种数据：
+ 
+1. 密钥实体（Key entity）——密钥（secret key）又或者是私钥和配对公钥（采用非对称加密）
+ 
+2. 可信任的证书实体（trusted certificate entries）——只包含公钥
+
+
+ailas(别名)每个keystore都关联这一个独一无二的alias，这个alias通常不区分大小写
+
+
+cleartext HTTP traffic to dotwe.org not permitted
+Android P联网报错 :Cleartext HTTP traffic to xxx not permitted
+android27之后，不可访问http，只能访问https
+
+Expected a string but was BEGIN_OBJECT at line 1 column 10 path $.Head
+Retrofit：看响应类，类型有问题返回的是对象，响应类中写成了string
+
+aar包中lib文件下有jar需加上
+ repositories {
+        flatDir {
+            	dirs 'libs'
+	dirs project(':csiibbg').file('libs'),'libs'
+        }
+    }
+
+
+图片转Base64
+转换后，字符串前面应该加上data:image/jpg;base64,   （注意后面的逗号，也得加上），否则无法正常解析
+

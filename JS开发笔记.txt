@@ -1,0 +1,33 @@
+﻿HTML定义网页的内容
+CSS 描述网页的布局
+JS 网页的行为
+
+
+document.getElementById("id").
+此方法是HTML DOM中定义的。
+DOM(Document Object model)用于访问HTML元素的W3C标准
+
+
+HTML中的脚本必须位于<script>标签中间。
+脚本可放在HTML页面的<body>和<head>部分中
+
+js显示数据
+window.alert()弹警告框
+document.write()写到HTML文档中
+innerHTML写入到HTML元素
+console.log()写到浏览器控制台
+
+
+
+js
+kotlin
+flutter
+
+
+
+
+
+
+
+
+
