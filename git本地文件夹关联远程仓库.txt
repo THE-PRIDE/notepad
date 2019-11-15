@@ -1,53 +1,35 @@
 一 本地文件夹关联远程仓库
 步骤：
-
 1、在三方代码托管平台创建自己的远程仓库。例如我们在gitee码云上创建自己的仓库，仓库名：SwiftDemo
-
 2、在本地cd进入自己的项目文件夹，初始化git
-
 3、git remote add origin "自己在三方代码托管平台上所创建仓库对应的地址"
-
 4、git add . 将本地工程文件夹所有内容添加至缓存区
-
 5、git commit - m "提交日志"
-
 6、git push -u origin master (首次推代码至远程仓库)
-
      git push （非首次推代码至远程仓库）
-
 注意：有可能在第6步时会出现如下问题：
 
+执行 git push -u remote origin时，出现failed to push some refs to 'xxx(远程库)'
+原因：README.md文件不在本地代码目录中
+方案：git pull --rebase origin master
+（如果失败了，查看是否有改动没提交）
+
 问题1：fatal: Authentication failed for 'https://gitee.com/Micheal_ZJ/SwiftDemo.git/'
-
 解决方式：重新设置账号相关
-
 git config --global user.name "你在码云上的用户名"
-
 git config --global user.email "你在码云上注册账户时使用的邮箱"
 
 
-
 问题2: error: failed to push some refs to 'https://gitee.com/Micheal_ZJ/SwiftDemo.git'
-
 解决方式：git pull origin master
 
 问题3:fatal: refusing to merge unrelated histories
-
 解决方式：git pull origin master --allow-unrelated-histories
 
 二 远程仓库clone文件至本地
 1、本地创建一个文件夹，cd进入该文件夹。
-
 2、git clone "远程仓库的地址"直接将远程仓库clone至本地。注意，这里会包含远程仓库名，不仅仅是里面的子目录。
-
 3、后面本地更改项目之后只需要cd进入clone下来的仓库中，然后执行:
-
-git add .
-
-git commit - m "提交日志"
-
-git push 三个操作即可。
-
 
 
 注意：
